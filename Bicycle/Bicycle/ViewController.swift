@@ -14,16 +14,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var repairStationTableTitleLabel: UILabel!
     @IBOutlet weak var helpButton: RoundedCorners!
     
-    private var repairStations: [RepairStation] = []
+    public var repairStations: [RepairStation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let repairStationCellNib = UINib.init(nibName: "RepairStationCell", bundle: nil)
         self.repairStationTable.register(repairStationCellNib, forCellReuseIdentifier: "RepairStationCell")
         
         self.repairStationTable.layer.cornerRadius = 10;
         self.repairStationTable.separatorStyle = UITableViewCell.SeparatorStyle.none;
         self.helpButton.backgroundColor = hexStringToUIColor(hex: "#32CD32");
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        RepairStationService.getCloseStations().done { (stations) in
+            self.repairStations = stations;
+            self.repairStationTable.reloadData();
+            self.repairStationTableTitleLabel.text = " \(self.repairStations.count) stations nearby";
+        }
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -47,14 +56,6 @@ class ViewController: UIViewController {
             alpha: CGFloat(1.0)
         )
     }
-    
-    override func viewWillAppear(_ animated: Bool){
-        RepairStationService.getCloseStations().done { (stations) in
-            self.repairStations = stations;
-            self.repairStationTable.reloadData();
-            self.repairStationTableTitleLabel.text = " \(self.repairStations.count) stations nearby";
-        }
-    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,17 +64,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110;
+        return 120;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepairStationCell", for: indexPath) as! RepairStationCell
-        
+
         cell.stationOperatorLabel.text = "\(self.repairStations[indexPath.row].stationOperator)";
         cell.distanceLabel.text = "\(self.repairStations[indexPath.row].distance) m"
         
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if #available(iOS 13.0, *) {
+            if let repairStationMapController = storyboard?.instantiateViewController(identifier: "RepairStationMapController") as? RepairStationsMapsViewController {
+                repairStationMapController.lat = "caliss"
+                navigationController?.pushViewController(repairStationMapController, animated: true)
+            }
+        }
     }
 }
 
