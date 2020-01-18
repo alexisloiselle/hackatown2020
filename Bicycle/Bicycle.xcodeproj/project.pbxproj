@@ -11,6 +11,7 @@
 		3D45A09E23D378070091B225 /* RepairStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D45A09C23D378070091B225 /* RepairStationCell.xib */; };
 		3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A09F23D37A820091B225 /* RoundedCorners.swift */; };
 		3D45A0A523D391580091B225 /* RepairStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A0A423D391580091B225 /* RepairStationService.swift */; };
+		3D638F5223D3A11E00EBFCEC /* RepairStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D638F5123D3A11E00EBFCEC /* RepairStation.swift */; };
 		3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAB23D374D500E4291F /* AppDelegate.swift */; };
 		3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAD23D374D500E4291F /* ViewController.swift */; };
 		3DEE1CB123D374D500E4291F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAF23D374D500E4291F /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		3D45A09C23D378070091B225 /* RepairStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepairStationCell.xib; sourceTree = "<group>"; };
 		3D45A09F23D37A820091B225 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		3D45A0A423D391580091B225 /* RepairStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationService.swift; sourceTree = "<group>"; };
+		3D638F5123D3A11E00EBFCEC /* RepairStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStation.swift; sourceTree = "<group>"; };
 		3DEE1CA823D374D500E4291F /* Bicycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bicycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEE1CAB23D374D500E4291F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DEE1CAD23D374D500E4291F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				3D45A09B23D378070091B225 /* RepairStationCell.swift */,
 				3D45A09C23D378070091B225 /* RepairStationCell.xib */,
 				3D45A0A423D391580091B225 /* RepairStationService.swift */,
+				3D638F5123D3A11E00EBFCEC /* RepairStation.swift */,
 			);
 			path = RepairStations;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */,
+				3D638F5223D3A11E00EBFCEC /* RepairStation.swift in Sources */,
 				3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */,
 				3D45A0A523D391580091B225 /* RepairStationService.swift in Sources */,
 				3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */,
