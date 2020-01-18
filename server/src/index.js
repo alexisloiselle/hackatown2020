@@ -7,34 +7,83 @@ import initializeDb from './db';
 import middleware from './middleware';
 import api from './api';
 import config from './config.json';
+import Io from 'socket.io';
 
 let app = express();
 app.server = http.createServer(app);
+
+let sockets = {}
+let io = Io.listen(app.server)
+io.on("connection", (socket) => {
+  socket.join('general')
+  sockets[socket.id] = {}
+
+  socket.on('updatePosition', (lat, lng) => {
+    socket[socket.id].lat = lat
+    socket[socket.id].lng = lng
+  })
+
+  socket.on('needHelp', (lat, lng) => {
+    const nearestSockets = Object.entries(sockets).reduce((acc, current) => {
+      if (!current[1].lat || !current[1].lng) {
+        return acc
+      }
+
+      const distance = getDistanceFromLatLonInKm(lat,
+        lng,
+        current[1].lat,
+        current[1].lng)
+
+      if (distance < 1) {
+        return [
+          ...acc,
+          {
+            id: current[0],
+            distance,
+            ...current[1]
+          }
+        ]
+      } else { return acc }
+    }, [])
+      .sort((a, b) => a.distance < b.distance ? -1 : 1)
+      .slice(0, count)
+
+    nearestSockets.forEach((nearSocket) => {
+      io.to(nearSocket.id).emit('askForHelp', lat, lng, socket.id)
+    })
+
+    io.to(socket.id).emit('askedForHelp', nearSockets)
+  })
+
+  socket.on('provideHelp', (lat, lng, id) => {
+    io.to(id).emit('helpComing', lat, lng)
+  })
+})
 
 // logger
 app.use(morgan('dev'));
 
 // 3rd party middleware
 app.use(cors({
-	exposedHeaders: config.corsHeaders
+  exposedHeaders: config.corsHeaders
 }));
 
 app.use(bodyParser.json({
-	limit : config.bodyLimit
+  limit: config.bodyLimit
 }));
 
 // connect to db
-initializeDb( db => {
+initializeDb(db => {
 
-	// internal middleware
-	app.use(middleware({ config, db }));
+  // internal middleware
+  app.use(middleware({ config, db }));
 
-	// api router
-	app.use('/api', api({ config, db }));
+  // api router
+  app.use('/api', api({ config, db }));
 
-	app.server.listen(process.env.PORT || config.port, () => {
-		console.log(`Started on port ${app.server.address().port}`);
-	});
+  app.server.listen(process.env.PORT || config.port, () => {
+    console.log(`Started on port ${app.server.address().port}`);
+  });
 });
 
 export default app;
