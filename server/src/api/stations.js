@@ -22,13 +22,15 @@ export default db => {
           current.lat,
           current.lng)
 
-        return [
-          ...acc,
-          {
-            distance,
-            ...current
-          }
-        ]
+        if (distance < 1) {
+          return [
+            ...acc,
+            {
+              distance,
+              ...current
+            }
+          ]
+        } else { return acc }
       }, [])
       .sort((a, b) => a.distance < b.distance ? -1 : 1)
       .slice(0, count)
