@@ -28,11 +28,6 @@ class ViewController: UIViewController {
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-    override func viewWillAppear(_ animated: Bool){
-        RepairStationService.getCloseStations().done { (stations) in
-            print(stations)
-        }
-    }
 
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
@@ -51,6 +46,12 @@ class ViewController: UIViewController {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        RepairStationService.getCloseStations().done { (stations) in
+            print(stations)
+        }
     }
 }
 
