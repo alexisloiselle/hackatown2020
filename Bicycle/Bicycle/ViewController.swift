@@ -28,6 +28,11 @@ class ViewController: UIViewController {
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    override func viewWillAppear(_ animated: Bool){
+        RepairStationService.getCloseStations().done { (stations) in
+            print(stations)
+        }
+    }
 
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
