@@ -14,4 +14,5 @@ target 'Bicycle' do
   pod 'Reachability'
   pod 'Alamofire-SwiftyJSON'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 end

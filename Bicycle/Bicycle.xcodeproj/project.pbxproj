@@ -11,6 +11,7 @@
 		3D45A09E23D378070091B225 /* RepairStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D45A09C23D378070091B225 /* RepairStationCell.xib */; };
 		3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A09F23D37A820091B225 /* RoundedCorners.swift */; };
 		3D45A0A523D391580091B225 /* RepairStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A0A423D391580091B225 /* RepairStationService.swift */; };
+		3D504AEA23D3ADDE002BF9C8 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D504AE923D3ADDE002BF9C8 /* SocketService.swift */; };
 		3D638F5223D3A11E00EBFCEC /* RepairStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D638F5123D3A11E00EBFCEC /* RepairStation.swift */; };
 		3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAB23D374D500E4291F /* AppDelegate.swift */; };
 		3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAD23D374D500E4291F /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		3D45A09C23D378070091B225 /* RepairStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepairStationCell.xib; sourceTree = "<group>"; };
 		3D45A09F23D37A820091B225 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		3D45A0A423D391580091B225 /* RepairStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationService.swift; sourceTree = "<group>"; };
+		3D504AE923D3ADDE002BF9C8 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		3D638F5123D3A11E00EBFCEC /* RepairStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStation.swift; sourceTree = "<group>"; };
 		3DEE1CA823D374D500E4291F /* Bicycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bicycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEE1CAB23D374D500E4291F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		3D504AE823D3ADC7002BF9C8 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				3D504AE923D3ADDE002BF9C8 /* SocketService.swift */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
 		3DEE1C9F23D374D400E4291F = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +100,7 @@
 		3DEE1CAA23D374D500E4291F /* Bicycle */ = {
 			isa = PBXGroup;
 			children = (
+				3D504AE823D3ADC7002BF9C8 /* Socket */,
 				3D45A0A123D37A8A0091B225 /* Buttons */,
 				3D45A09A23D377AD0091B225 /* RepairStations */,
 				3DEE1CAB23D374D500E4291F /* AppDelegate.swift */,
@@ -130,7 +141,7 @@
 				3DEE1CA423D374D500E4291F /* Sources */,
 				3DEE1CA523D374D500E4291F /* Frameworks */,
 				3DEE1CA623D374D500E4291F /* Resources */,
-				8F59C04B01BECBDBD3AC87B4 /* [CP] Embed Pods Frameworks */,
+				2E685E3849125D2A58964E55 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +200,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2E685E3849125D2A58964E55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/AwaitKit/AwaitKit.framework",
+				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwaitKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6D6398B8A3CF420A865DF506 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -211,40 +260,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8F59C04B01BECBDBD3AC87B4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/AwaitKit/AwaitKit.framework",
-				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwaitKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -254,6 +269,7 @@
 			files = (
 				3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */,
 				3D638F5223D3A11E00EBFCEC /* RepairStation.swift in Sources */,
+				3D504AEA23D3ADDE002BF9C8 /* SocketService.swift in Sources */,
 				3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */,
 				3D45A0A523D391580091B225 /* RepairStationService.swift in Sources */,
 				3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */,
@@ -407,6 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 227V6QKFLX;
 				INFOPLIST_FILE = Bicycle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,6 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 227V6QKFLX;
 				INFOPLIST_FILE = Bicycle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
