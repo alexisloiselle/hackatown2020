@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D45A09D23D378070091B225 /* RepairStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A09B23D378070091B225 /* RepairStationCell.swift */; };
+		3D45A09E23D378070091B225 /* RepairStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D45A09C23D378070091B225 /* RepairStationCell.xib */; };
+		3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A09F23D37A820091B225 /* RoundedCorners.swift */; };
 		3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAB23D374D500E4291F /* AppDelegate.swift */; };
 		3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAD23D374D500E4291F /* ViewController.swift */; };
 		3DEE1CB123D374D500E4291F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAF23D374D500E4291F /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D45A09B23D378070091B225 /* RepairStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationCell.swift; sourceTree = "<group>"; };
+		3D45A09C23D378070091B225 /* RepairStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepairStationCell.xib; sourceTree = "<group>"; };
+		3D45A09F23D37A820091B225 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		3DEE1CA823D374D500E4291F /* Bicycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bicycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEE1CAB23D374D500E4291F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DEE1CAD23D374D500E4291F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D45A09A23D377AD0091B225 /* RepairStations */ = {
+			isa = PBXGroup;
+			children = (
+				3D45A09B23D378070091B225 /* RepairStationCell.swift */,
+				3D45A09C23D378070091B225 /* RepairStationCell.xib */,
+			);
+			path = RepairStations;
+			sourceTree = "<group>";
+		};
+		3D45A0A123D37A8A0091B225 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3D45A09F23D37A820091B225 /* RoundedCorners.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		3DEE1C9F23D374D400E4291F = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +77,8 @@
 		3DEE1CAA23D374D500E4291F /* Bicycle */ = {
 			isa = PBXGroup;
 			children = (
+				3D45A0A123D37A8A0091B225 /* Buttons */,
+				3D45A09A23D377AD0091B225 /* RepairStations */,
 				3DEE1CAB23D374D500E4291F /* AppDelegate.swift */,
 				3DEE1CAD23D374D500E4291F /* ViewController.swift */,
 				3DEE1CAF23D374D500E4291F /* Main.storyboard */,
@@ -125,6 +150,7 @@
 				3DEE1CB623D374D600E4291F /* LaunchScreen.storyboard in Resources */,
 				3DEE1CB323D374D600E4291F /* Assets.xcassets in Resources */,
 				3DEE1CB123D374D500E4291F /* Main.storyboard in Resources */,
+				3D45A09E23D378070091B225 /* RepairStationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */,
 				3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */,
 				3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */,
+				3D45A09D23D378070091B225 /* RepairStationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
