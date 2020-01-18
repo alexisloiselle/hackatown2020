@@ -11,18 +11,18 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var repairStationTable: UITableView!
-    
     @IBOutlet weak var repairStationTableTitleLabel: UILabel!
-    
     @IBOutlet weak var helpButton: RoundedCorners!
+    
+    private var repairStations: [RepairStation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let repairStationCellNib = UINib.init(nibName: "RepairStationCell", bundle: nil)
         self.repairStationTable.register(repairStationCellNib, forCellReuseIdentifier: "RepairStationCell")
-        self.repairStationTable.layer.cornerRadius = 10;
-        self.repairStationTableTitleLabel.text = "3 stations nearby";
         
+        self.repairStationTable.layer.cornerRadius = 10;
+        self.repairStationTable.separatorStyle = UITableViewCell.SeparatorStyle.none;
         self.helpButton.backgroundColor = hexStringToUIColor(hex: "#32CD32");
     }
     
@@ -50,26 +50,28 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         RepairStationService.getCloseStations().done { (stations) in
-            print(stations)
+            self.repairStations = stations;
+            self.repairStationTable.reloadData();
+            self.repairStationTableTitleLabel.text = " \(self.repairStations.count) stations nearby";
         }
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
+        return self.repairStations.count;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100;
+        return 110;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepairStationCell", for: indexPath) as! RepairStationCell
         
-        cell.stationOperatorLabel.text = "Bicyle station \(indexPath.row+1)";
-        cell.distanceLabel.text = "\((indexPath.row+1)*3) m"
+        cell.stationOperatorLabel.text = "\(self.repairStations[indexPath.row].stationOperator)";
+        cell.distanceLabel.text = "\(self.repairStations[indexPath.row].distance) m"
         
         return cell;
     }
