@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Connect to socket
+        SocketService.start();
         
         let repairStationCellNib = UINib.init(nibName: "RepairStationCell", bundle: nil)
         self.repairStationTable.register(repairStationCellNib, forCellReuseIdentifier: "RepairStationCell")

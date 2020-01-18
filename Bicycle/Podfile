@@ -15,4 +15,5 @@ target 'Bicycle' do
   pod 'Alamofire-SwiftyJSON'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'GoogleMaps'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 end

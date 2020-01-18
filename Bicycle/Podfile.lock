@@ -24,6 +24,9 @@ PODS:
   - PromiseKit/UIKit (6.8.3):
     - PromiseKit/CorePromise
   - Reachability (3.2)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
@@ -35,6 +38,7 @@ DEPENDENCIES:
   - PromiseKit
   - PromiseKit/Alamofire
   - Reachability
+  - Socket.IO-Client-Swift (~> 15.2.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -46,6 +50,8 @@ SPEC REPOS:
     - JWTDecode
     - PromiseKit
     - Reachability
+    - Socket.IO-Client-Swift
+    - Starscream
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -56,8 +62,10 @@ SPEC CHECKSUMS:
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: f1ae484d1ca779412f9f5bc550fc0374fb92116d
+PODFILE CHECKSUM: bf67472320f3dc5ba9c72795c24b2884b5bc4655
 
 COCOAPODS: 1.8.4
