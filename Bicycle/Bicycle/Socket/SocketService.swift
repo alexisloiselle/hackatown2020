@@ -43,6 +43,8 @@ class SocketService {
         socket.on("helpComing") {data, _ in
             let rider = data[0] as! [String: Any]
             let someonesIsViewController = viewController.storyboard?.instantiateViewController(withIdentifier: "SomeonesIsViewController") as! SomeonesIsViewController
+            
+            // Allo, faut dismiss la view courante qui est modally, sinon erreur, merci
             self.delegate!.dismiss(animated: true, completion: nil)
             someonesIsViewController.rider = rider
             viewController.present(someonesIsViewController, animated: true, completion: nil)
