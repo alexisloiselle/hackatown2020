@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34D32C4F6031C06C9F1F8ECF /* Pods_Bicycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42BA3AEECA7F55EDC3A95C6 /* Pods_Bicycle.framework */; };
 		3D45A09D23D378070091B225 /* RepairStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A09B23D378070091B225 /* RepairStationCell.swift */; };
 		3D45A09E23D378070091B225 /* RepairStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D45A09C23D378070091B225 /* RepairStationCell.xib */; };
 		3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45A09F23D37A820091B225 /* RoundedCorners.swift */; };
@@ -23,6 +22,7 @@
 		8C9B938523D3DEC900A27612 /* RepairStationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938423D3DEC900A27612 /* RepairStationDetailsViewController.swift */; };
 		8C9B938923D3F3F500A27612 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938823D3F3F500A27612 /* RoundedCornersView.swift */; };
 		8C9B938C23D3F69400A27612 /* HelpMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938B23D3F69400A27612 /* HelpMeViewController.swift */; };
+		C1DDA4BDD6A71D84A3309C3D /* Pods_Bicycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B19C4076FCBB5EC1693688 /* Pods_Bicycle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,13 +39,13 @@
 		3DEE1CB223D374D600E4291F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DEE1CB523D374D600E4291F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DEE1CB723D374D600E4291F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		729D02FA56C319C24F4290DC /* Pods-Bicycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.release.xcconfig"; sourceTree = "<group>"; };
+		7C28D63900EC24F732BCEF1F /* Pods-Bicycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.debug.xcconfig"; sourceTree = "<group>"; };
+		84B19C4076FCBB5EC1693688 /* Pods_Bicycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bicycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationsMapsViewController.swift; sourceTree = "<group>"; };
 		8C9B938423D3DEC900A27612 /* RepairStationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationDetailsViewController.swift; sourceTree = "<group>"; };
 		8C9B938823D3F3F500A27612 /* RoundedCornersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		8C9B938B23D3F69400A27612 /* HelpMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMeViewController.swift; sourceTree = "<group>"; };
-		9A5B5E29B9D64E7537861C24 /* Pods-Bicycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.debug.xcconfig"; sourceTree = "<group>"; };
-		D95053C3CC7BCAE55D683163 /* Pods-Bicycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.release.xcconfig"; sourceTree = "<group>"; };
-		E42BA3AEECA7F55EDC3A95C6 /* Pods_Bicycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bicycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,13 +53,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D32C4F6031C06C9F1F8ECF /* Pods_Bicycle.framework in Frameworks */,
+				C1DDA4BDD6A71D84A3309C3D /* Pods_Bicycle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B58EBBA6AEE5B9C8BB35B34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84B19C4076FCBB5EC1693688 /* Pods_Bicycle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D45A09A23D377AD0091B225 /* RepairStations */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +102,8 @@
 			children = (
 				3DEE1CAA23D374D500E4291F /* Bicycle */,
 				3DEE1CA923D374D500E4291F /* Products */,
-				E9FEE531D6A1F4DA9788C191 /* Pods */,
-				7E5D2E5EE405894D63F3087C /* Frameworks */,
+				64B88F53EA89F2AF3BEC0AEF /* Pods */,
+				1B58EBBA6AEE5B9C8BB35B34 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,12 +133,13 @@
 			path = Bicycle;
 			sourceTree = "<group>";
 		};
-		7E5D2E5EE405894D63F3087C /* Frameworks */ = {
+		64B88F53EA89F2AF3BEC0AEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E42BA3AEECA7F55EDC3A95C6 /* Pods_Bicycle.framework */,
+				7C28D63900EC24F732BCEF1F /* Pods-Bicycle.debug.xcconfig */,
+				729D02FA56C319C24F4290DC /* Pods-Bicycle.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8C92B54123D3B28C00413DDA /* Maps */ = {
@@ -149,15 +158,6 @@
 			path = HelpMe;
 			sourceTree = "<group>";
 		};
-		E9FEE531D6A1F4DA9788C191 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9A5B5E29B9D64E7537861C24 /* Pods-Bicycle.debug.xcconfig */,
-				D95053C3CC7BCAE55D683163 /* Pods-Bicycle.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,12 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DEE1CBA23D374D600E4291F /* Build configuration list for PBXNativeTarget "Bicycle" */;
 			buildPhases = (
-				7236C5A5A5144E13D9ED4013 /* [CP] Check Pods Manifest.lock */,
+				C0446CF7A3ED593B1C086D36 /* [CP] Check Pods Manifest.lock */,
 				3DEE1CA423D374D500E4291F /* Sources */,
 				3DEE1CA523D374D500E4291F /* Frameworks */,
 				3DEE1CA623D374D500E4291F /* Resources */,
-				269A91516A5312492387B79C /* [CP] Embed Pods Frameworks */,
-				3448BC57B2138787CB9E1FE4 /* [CP] Copy Pods Resources */,
+				9E9F0826BCA37C34425A541E /* [CP] Embed Pods Frameworks */,
+				9DCB4BE0AF32EDE7F30A7C42 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,7 +229,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		269A91516A5312492387B79C /* [CP] Embed Pods Frameworks */ = {
+		9DCB4BE0AF32EDE7F30A7C42 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E9F0826BCA37C34425A541E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,29 +295,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3448BC57B2138787CB9E1FE4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Bicycle-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7236C5A5A5144E13D9ED4013 /* [CP] Check Pods Manifest.lock */ = {
+		C0446CF7A3ED593B1C086D36 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -478,7 +478,7 @@
 		};
 		3DEE1CBB23D374D600E4291F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A5B5E29B9D64E7537861C24 /* Pods-Bicycle.debug.xcconfig */;
+			baseConfigurationReference = 7C28D63900EC24F732BCEF1F /* Pods-Bicycle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -498,7 +498,7 @@
 		};
 		3DEE1CBC23D374D600E4291F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D95053C3CC7BCAE55D683163 /* Pods-Bicycle.release.xcconfig */;
+			baseConfigurationReference = 729D02FA56C319C24F4290DC /* Pods-Bicycle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
