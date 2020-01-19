@@ -103,6 +103,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wKe-dK-tJe"/>
                     </view>
                 </viewController>
@@ -121,6 +122,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJB-0n-lg1">
                                 <rect key="frame" x="0.0" y="190" width="375" height="622"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="GaN-F9-ISK" kind="embed" id="IME-Eb-PVp"/>
                                 </connections>
@@ -141,6 +143,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.19607843137254902" green="0.80392156862745101" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EIa-bj-8PC"/>
                     </view>
                     <navigationItem key="navigationItem" id="1mG-l1-rWN"/>
@@ -187,4 +190,5 @@
             <point key="canvasLocation" x="1726" y="773"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

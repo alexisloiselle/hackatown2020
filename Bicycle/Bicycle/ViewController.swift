@@ -138,7 +138,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if #available(iOS 13.0, *) {
-            if let repairStationDetailsViewController = storyboard?.instantiateViewController(identifier: "RepairStationDetailsViewController") as? RepairStationDetailsViewController {
+            if let repairStationDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "RepairStationDetailsViewController") as? RepairStationDetailsViewController {
                 repairStationDetailsViewController.station = self.repairStations[indexPath.row]
                 navigationController?.pushViewController(repairStationDetailsViewController, animated: true)
             }
