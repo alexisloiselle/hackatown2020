@@ -68,9 +68,9 @@ io.on("connection", (socket) => {
     io.to(socket.id).emit('askedForHelp', nearestSockets)
     console.log("Asked for help")
     // For testing view without relying on other view ...
-    // setTimeout(() => {
-    //   io.to(socket.id).emit("helpComing", {lat:nearestSockets[0].lat, lng:nearestSockets[0].lng, distance:nearestSockets[0].distance})
-    // },10000)
+    setTimeout(() => {
+      io.to(socket.id).emit("helpComing", {lat:nearestSockets[0].lat, lng:nearestSockets[0].lng, distance:nearestSockets[0].distance})
+    },10000)
   })
 
   socket.on('provideHelp', (lat, lng, id) => {

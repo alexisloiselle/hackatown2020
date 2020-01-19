@@ -31,5 +31,7 @@ class RepairStationDetailsViewController: UIViewController {
         (self.children[0] as! RepairStationsMapsViewController).lat = self.station!.lat
         (self.children[0] as! RepairStationsMapsViewController).lng = self.station!.lng
         (self.children[0] as! RepairStationsMapsViewController).loadView()
+        let position = CLLocationCoordinate2D(latitude: (self.station!.lat as NSString).doubleValue, longitude: (self.station!.lng as NSString).doubleValue)
+        (self.children[0] as! RepairStationsMapsViewController).fetchRoute(from: globalLocationManager.location!.coordinate, to: position)
     }
 }
