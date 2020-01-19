@@ -98,6 +98,10 @@ class SocketService {
         socket.emit("updatePosition", lat, lng)
     }
     
+    static func provideHelp(lat: Double, lng: Double, id: String) -> Void{
+        socket.emit("provideHelp", lat, lng, id)
+    }
+    
     static func laisserPourCompte(id: String) -> Void {
         socket.emit("laisserPourCompte", id)
     }

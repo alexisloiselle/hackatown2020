@@ -11,20 +11,21 @@ import UIKit
 class HelpMeYesViewController: UIViewController {
     public var lat: String = ""
     public var lng: String = ""
+    public var distance: Double = 0.0
+    
+    @IBOutlet weak var distanceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("****** \(self.lat) + \(self.lng)")
+        let dist = (self.distance * 1000).rounded()
+        self.distanceLabel.text = String(Int(dist)) + " m"
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        (self.children[0] as! RepairStationsMapsViewController).lat = self.lat
+        (self.children[0] as! RepairStationsMapsViewController).lng = self.lng
+        (self.children[0] as! RepairStationsMapsViewController).loadView()
     }
-    */
 
 }
