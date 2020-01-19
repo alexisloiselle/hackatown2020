@@ -57,6 +57,7 @@ class SocketService {
 
                 helpProviderViewController.lat = "\(result["lat"]!)"
                 helpProviderViewController.lng = "\(result["lng"]!)"
+                helpProviderViewController.id = "\(result["id"]!)"
                 helpProviderViewController.distance = result["distance"] as! Double
 
                 viewController.present(helpProviderViewController, animated: true, completion: nil)
@@ -95,6 +96,10 @@ class SocketService {
     
     static func updatePosition(lat: Double, lng: Double) -> Void {
         socket.emit("updatePosition", lat, lng)
+    }
+    
+    static func laisserPourCompte(id: String) -> Void {
+        socket.emit("laisserPourCompte", id)
     }
     
 }

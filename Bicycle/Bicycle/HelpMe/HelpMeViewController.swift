@@ -47,9 +47,9 @@ extension HelpMeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.label.text = nearbyRiders[indexPath.row]["name"] as! String
         cell.distance.text = "\(String(Int(((nearbyRiders[indexPath.row]["distance"]) as! Double * 1000).rounded()))) m"
         if (nearbyRiders[indexPath.row]["bailed"] as? Bool ?? false) {
-            cell.container.backgroundColor = #colorLiteral(red: 0.9472755393, green: 0.7966470342, blue: 0.2014493321, alpha: 1)
+            cell.container.backgroundColor = #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2666666667, alpha: 1)
             cell.distance.isHidden = true
-            cell.label.textColor = .black
+//            cell.label.textColor = .black
             cell.message.isHidden = false
         }
         

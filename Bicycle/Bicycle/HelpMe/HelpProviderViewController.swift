@@ -22,9 +22,14 @@ class HelpProviderViewController: UIViewController {
     }
     
     @IBAction func noButton(_ sender: UIButton) {
+        SocketService.laisserPourCompte(id: self.id)
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    
     public var lat: String = ""
     public var lng: String = ""
+    public var id: String = ""
     public var distance: Double = 0.0
     
     override func viewDidLoad() {
