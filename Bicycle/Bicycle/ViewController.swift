@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-
+    
     @IBOutlet weak var repairStationTable: UITableView!
     @IBOutlet weak var repairStationTableTitleLabel: UILabel!
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
-        self.initSocket()
+        self.initLocationServices()
         
         let repairStationCellNib = UINib.init(nibName: "RepairStationCell", bundle: nil)
         self.repairStationTable.register(repairStationCellNib, forCellReuseIdentifier: "RepairStationCell")
@@ -56,11 +56,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        SocketService.updatePosition(lat: locValue.latitude, lng: locValue.longitude)
+        
+        if CLLocationManager.locationServicesEnabled() {
+            if (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
+                if (!SocketService.initialized) {
+                    self.initSocket()
+                    SocketService.initialized = true
+                } else {
+                    SocketService.updatePosition(lat: locValue.latitude, lng: locValue.longitude)
+                }
+                self.fetchNearStations()
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        self.initSocket()
-        self.fetchNearStations()
+        self.initLocationServices()
     }
     
     func fetchNearStations() -> Void {
@@ -75,20 +87,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func initSocket() -> Void {
+    func initLocationServices() -> Void {
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
             if (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
-                // Connect to socket
-                SocketService.start(lat: locationManager.location!.coordinate.latitude, lng: locationManager.location!.coordinate.longitude)
-                
-                Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
-                    SocketService.updatePosition(lat: self.locationManager.location!.coordinate.latitude, lng: self.locationManager.location!.coordinate.longitude)
-                }
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                locationManager.startUpdatingLocation()
             }
         }
+    }
+    
+    func initSocket() -> Void {
+        // Connect to socket
+        SocketService.start(lat: locationManager.location!.coordinate.latitude, lng: locationManager.location!.coordinate.longitude, viewController: self)
     }
 }
 
@@ -103,7 +114,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepairStationCell", for: indexPath) as! RepairStationCell
-
+        
         cell.stationOperatorLabel.text = "\(self.repairStations[indexPath.row].stationOperator)";
         cell.distanceLabel.text = "\(Int(self.repairStations[indexPath.row].distance * 1000)) m"
         

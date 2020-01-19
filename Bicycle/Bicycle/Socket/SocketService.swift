@@ -9,12 +9,15 @@
 import Foundation
 import SocketIO
 import PromiseKit
+import NotificationBannerSwift
 
 let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(false), .compress])
 let socket = manager.defaultSocket
 
 class SocketService {
-    static func start(lat: Double, lng: Double) -> Void {
+    public static var initialized: Bool = false
+    
+    static func start(lat: Double, lng: Double, viewController: UIViewController) -> Void {
         socket.on(clientEvent: .connect) {data, ack in
             self.updatePosition(lat: lat, lng: lng)
             print("socket connected")
@@ -26,6 +29,8 @@ class SocketService {
         
         socket.on("askForHelp") {data, _ in
             print("Someone needs help")
+            let banner3 = GrowingNotificationBanner(title: "Someone needs help", style: .info)
+            banner3.show()
         }
         
         socket.connect()
