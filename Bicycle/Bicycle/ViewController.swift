@@ -14,6 +14,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var repairStationTable: UITableView!
     @IBOutlet weak var repairStationTableTitleLabel: UILabel!
     
+    @IBAction func helpPressed(_ sender: Any) {
+       let helpMeViewController = storyboard?.instantiateViewController(withIdentifier: "HelpMeViewController") as! HelpMeViewController
+        self.present(helpMeViewController, animated: true, completion: nil)
+    }
+    
    func askHelp(_ sender: UIButton) {
         SocketService.askHelp(lat: locationManager.location!.coordinate.latitude,lng: locationManager.location!.coordinate.longitude)
     }
@@ -44,38 +49,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.layoutIfNeeded()
-        RepairStationService.getCloseStations().done { (stations) in
-            self.repairStations = stations;
-            self.repairStationTable.reloadData();
-            self.repairStationTableTitleLabel.text = " \(self.repairStations.count) stations nearby";
-        }
-    }
-    
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-
-        var rgbValue:UInt64 = 0
-        Scanner(string: cString).scanHexInt64(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
-    override func viewWillAppear(_ animated: Bool){
         self.fetchNearStations()
     }
+
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
