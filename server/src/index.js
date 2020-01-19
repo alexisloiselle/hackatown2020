@@ -8,6 +8,7 @@ import middleware from './middleware';
 import api from './api';
 import config from './config.json';
 import Io from 'socket.io';
+import { getDistanceFromLatLonInKm } from './lib/util'
 
 let app = express();
 app.server = http.createServer(app);
@@ -19,11 +20,13 @@ io.on("connection", (socket) => {
   sockets[socket.id] = {}
 
   socket.on('updatePosition', (lat, lng) => {
-    socket[socket.id].lat = lat
-    socket[socket.id].lng = lng
+    sockets[socket.id] = {...socket[socket.id], lat, lng}
+    console.log(sockets)
+    console.log("position updated")
   })
 
   socket.on('needHelp', (lat, lng) => {
+    console.log(sockets)
     const nearestSockets = Object.entries(sockets).reduce((acc, current) => {
       if (!current[1].lat || !current[1].lng) {
         return acc
@@ -46,17 +49,24 @@ io.on("connection", (socket) => {
       } else { return acc }
     }, [])
       .sort((a, b) => a.distance < b.distance ? -1 : 1)
-      .slice(0, count)
+      .filter(x => x.id !== socket.id)
+      .slice(0, 3)
 
     nearestSockets.forEach((nearSocket) => {
       io.to(nearSocket.id).emit('askForHelp', lat, lng, socket.id)
+      console.log("Ask for help")
     })
-
-    io.to(socket.id).emit('askedForHelp', nearSockets)
+    
+    io.to(socket.id).emit('askedForHelp', nearestSockets)
+    console.log("Asked for help")
   })
 
   socket.on('provideHelp', (lat, lng, id) => {
     io.to(id).emit('helpComing', lat, lng)
+  })
+
+  socket.on('disconnect', () => {
+    delete sockets[socket.id]
   })
 })
 

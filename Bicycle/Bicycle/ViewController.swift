@@ -7,19 +7,34 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var repairStationTable: UITableView!
     @IBOutlet weak var repairStationTableTitleLabel: UILabel!
     @IBOutlet weak var helpButton: RoundedCorners!
     
+    
+    @IBAction func askHelp(_ sender: UIButton) {
+        SocketService.askHelp(lat: locationManager.location!.coordinate.latitude,lng: locationManager.location!.coordinate.longitude)
+    }
+    
     private var repairStations: [RepairStation] = []
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Connect to socket
-        SocketService.start();
+        
+        // Get location services
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        self.initSocket()
         
         let repairStationCellNib = UINib.init(nibName: "RepairStationCell", bundle: nil)
         self.repairStationTable.register(repairStationCellNib, forCellReuseIdentifier: "RepairStationCell")
@@ -52,10 +67,44 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool){
-        RepairStationService.getCloseStations().done { (stations) in
-            self.repairStations = stations;
-            self.repairStationTable.reloadData();
-            self.repairStationTableTitleLabel.text = " \(self.repairStations.count) stations nearby";
+        self.fetchNearStations()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.initSocket()
+        self.fetchNearStations()
+    }
+    
+    func fetchNearStations() -> Void {
+        if CLLocationManager.locationServicesEnabled() {
+            if (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
+                RepairStationService.getCloseStations(lat: locationManager.location!.coordinate.latitude, lng: locationManager.location!.coordinate.longitude).done { (stations) in
+                    self.repairStations = stations;
+                    self.repairStationTable.reloadData();
+                    self.repairStationTableTitleLabel.text = " \(self.repairStations.count) stations nearby";
+                }
+            }
+        }
+    }
+    
+    func initSocket() -> Void {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            if (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
+                // Connect to socket
+                SocketService.start(lat: locationManager.location!.coordinate.latitude, lng: locationManager.location!.coordinate.longitude)
+                
+                Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
+                    SocketService.updatePosition(lat: self.locationManager.location!.coordinate.latitude, lng: self.locationManager.location!.coordinate.longitude)
+                }
+            }
         }
     }
 }
