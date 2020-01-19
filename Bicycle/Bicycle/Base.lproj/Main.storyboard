@@ -80,22 +80,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We notified the rider in need of help of your imminent arrival " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAb-vD-ZRt">
-                                <rect key="frame" x="34" y="20" width="307" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="We notified the rider in need of help of your imminent arrival " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAb-vD-ZRt">
+                                <rect key="frame" x="16" y="67" width="307" height="75"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJG-dc-8f6">
+                                <rect key="frame" x="0.0" y="189" width="375" height="623"/>
+                                <connections>
+                                    <segue destination="faO-a3-UuP" kind="embed" id="BeF-mQ-1TM"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQe-hI-OTP">
+                                <rect key="frame" x="16" y="159.66666666666666" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fJG-dc-8f6" firstAttribute="firstBaseline" secondItem="oQe-hI-OTP" secondAttribute="baseline" constant="12.333333333333334" symbolType="layoutAnchor" id="16n-ZP-AYF"/>
+                            <constraint firstItem="oQe-hI-OTP" firstAttribute="leading" secondItem="J4H-BJ-5O1" secondAttribute="leadingMargin" id="8q4-1E-CFl"/>
+                            <constraint firstItem="fJG-dc-8f6" firstAttribute="top" secondItem="J4H-BJ-5O1" secondAttribute="top" constant="189" id="AsB-MJ-JH0"/>
+                            <constraint firstItem="oQe-hI-OTP" firstAttribute="top" secondItem="VAb-vD-ZRt" secondAttribute="bottom" constant="17.666666666666657" id="CgC-hh-uGd"/>
+                            <constraint firstItem="oQe-hI-OTP" firstAttribute="leading" secondItem="VAb-vD-ZRt" secondAttribute="leading" id="Csf-xZ-GAy"/>
+                            <constraint firstItem="fJG-dc-8f6" firstAttribute="leading" secondItem="E4L-DE-R88" secondAttribute="leading" id="Mc5-gG-Uwx"/>
+                            <constraint firstItem="fJG-dc-8f6" firstAttribute="centerX" secondItem="J4H-BJ-5O1" secondAttribute="centerX" id="WPm-Xq-ShZ"/>
+                            <constraint firstItem="E4L-DE-R88" firstAttribute="trailing" secondItem="VAb-vD-ZRt" secondAttribute="trailing" constant="52" id="r9V-LF-rdQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fJG-dc-8f6" secondAttribute="bottom" constant="-34" id="tCP-KP-ITF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="E4L-DE-R88"/>
                     </view>
                     <navigationItem key="navigationItem" id="8MT-oG-gYn"/>
+                    <connections>
+                        <outlet property="distanceLabel" destination="oQe-hI-OTP" id="TAJ-T0-ApE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKF-gx-HU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-591" y="856"/>
+            <point key="canvasLocation" x="-591.20000000000005" y="855.66502463054189"/>
         </scene>
         <!--Help Provider View Controller-->
         <scene sceneID="Vao-xx-ifZ">
@@ -105,23 +130,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Zo-x2-kew">
-                                <rect key="frame" x="0.0" y="128" width="375" height="565"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zo-x2-kew">
+                                <rect key="frame" x="0.0" y="144" width="375" height="549"/>
                                 <connections>
                                     <segue destination="4DR-An-8My" kind="embed" id="22s-tZ-smd"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0a-Bx-2Fc">
-                                <rect key="frame" x="16" y="90" width="66" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0a-Bx-2Fc">
+                                <rect key="frame" x="16" y="106" width="64.666666666666671" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfg-U9-Chb">
+                            <button opaque="NO" contentMode="top" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfg-U9-Chb">
                                 <rect key="frame" x="0.0" y="692" width="188" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Yes">
@@ -131,9 +153,8 @@
                                     <action selector="yesButton:" destination="Msb-9j-N5B" eventType="touchUpInside" id="nKT-QZ-fSz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBl-tr-kfK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBl-tr-kfK">
                                 <rect key="frame" x="187" y="692" width="188" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="No">
@@ -143,15 +164,37 @@
                                     <action selector="noButton:" destination="Msb-9j-N5B" eventType="touchUpInside" id="8Ll-VG-Pjx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help a fellow rider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IY-63-Vsd">
-                                <rect key="frame" x="16" y="44" width="258" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help a fellow rider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IY-63-Vsd">
+                                <rect key="frame" x="16" y="60" width="258" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="yY4-7H-hBL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3Zo-x2-kew" firstAttribute="trailing" secondItem="9Gw-7Q-JVi" secondAttribute="trailing" id="9m2-My-WmX"/>
+                            <constraint firstAttribute="bottom" secondItem="Nfg-U9-Chb" secondAttribute="bottom" id="APc-RW-7dj"/>
+                            <constraint firstItem="Nfg-U9-Chb" firstAttribute="top" secondItem="3Zo-x2-kew" secondAttribute="bottom" constant="-1" id="CJt-mW-H7E"/>
+                            <constraint firstItem="tBl-tr-kfK" firstAttribute="leading" secondItem="9Gw-7Q-JVi" secondAttribute="leading" constant="187" id="DSi-yn-IGi"/>
+                            <constraint firstItem="3Zo-x2-kew" firstAttribute="leading" secondItem="Nfg-U9-Chb" secondAttribute="leading" id="JMG-Zl-RJx"/>
+                            <constraint firstItem="3Zo-x2-kew" firstAttribute="top" secondItem="d0a-Bx-2Fc" secondAttribute="bottom" constant="17" id="Mp1-EM-a4F"/>
+                            <constraint firstItem="9Gw-7Q-JVi" firstAttribute="trailing" secondItem="6IY-63-Vsd" secondAttribute="trailing" constant="101" id="Tca-10-C6e"/>
+                            <constraint firstItem="6IY-63-Vsd" firstAttribute="leading" secondItem="d0a-Bx-2Fc" secondAttribute="leading" id="UKr-DH-QsE"/>
+                            <constraint firstItem="3Zo-x2-kew" firstAttribute="leading" secondItem="9Gw-7Q-JVi" secondAttribute="leading" id="XUH-Si-CTd"/>
+                            <constraint firstItem="6IY-63-Vsd" firstAttribute="top" secondItem="9Gw-7Q-JVi" secondAttribute="top" constant="16" id="YHi-LC-pjv"/>
+                            <constraint firstItem="9Gw-7Q-JVi" firstAttribute="bottom" secondItem="3Zo-x2-kew" secondAttribute="bottom" constant="85" id="Ye7-zz-lfq"/>
+                            <constraint firstItem="3Zo-x2-kew" firstAttribute="centerX" secondItem="Ro2-lG-nfk" secondAttribute="centerX" id="Yer-Gf-cow"/>
+                            <constraint firstItem="9Gw-7Q-JVi" firstAttribute="trailing" secondItem="Nfg-U9-Chb" secondAttribute="trailing" constant="187" id="Yk6-jI-y9s"/>
+                            <constraint firstItem="tBl-tr-kfK" firstAttribute="top" secondItem="3Zo-x2-kew" secondAttribute="bottom" constant="-1" id="cCm-hD-pFn"/>
+                            <constraint firstItem="6IY-63-Vsd" firstAttribute="leading" secondItem="Ro2-lG-nfk" secondAttribute="leadingMargin" id="fnt-74-B6a"/>
+                            <constraint firstItem="d0a-Bx-2Fc" firstAttribute="top" secondItem="6IY-63-Vsd" secondAttribute="bottom" constant="8" id="njQ-bh-ThM"/>
+                            <constraint firstItem="3Zo-x2-kew" firstAttribute="trailing" secondItem="tBl-tr-kfK" secondAttribute="trailing" id="pgW-YK-WtE"/>
+                            <constraint firstAttribute="bottom" secondItem="tBl-tr-kfK" secondAttribute="bottom" id="uAP-qn-VBD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9Gw-7Q-JVi"/>
                     </view>
                     <connections>
@@ -162,7 +205,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPw-LR-hGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="855.66502463054189"/>
-</scene>
+        </scene>
         <!--Someones Is View Controller-->
         <scene sceneID="65f-cO-cR8">
             <objects>
@@ -171,27 +214,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Someone's coming for you!" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Pb-4F-PAU">
-                                <rect key="frame" x="16" y="65" width="343" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X m away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z56-kd-gvV">
-                                <rect key="frame" x="16" y="204" width="100" height="29"/>
+                                <rect key="frame" x="16" y="137" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ew-ol-OKw">
-                                <rect key="frame" x="0.0" y="241" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="190" width="375" height="622"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="2IS-z9-tbG" kind="embed" id="rIU-3o-got"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Someone's coming for you!" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Pb-4F-PAU">
+                                <rect key="frame" x="16" y="85" width="343" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="0pO-Zv-oV1"/>
@@ -336,20 +379,22 @@
             <objects>
                 <viewController id="4DR-An-8My" customClass="RepairStationsMapsViewController" customModule="Bicycle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d4u-l9-vYo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="565"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="549"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="8j6-tn-Ad6"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKk-Ke-0Y3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="90" y="1586"/>
         </scene>
+        <!--Repair Stations Maps View Controller-->
         <scene sceneID="ftB-Fe-gIF">
             <objects>
                 <viewController storyboardIdentifier="RepairStationsMapsViewController2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2IS-z9-tbG" customClass="RepairStationsMapsViewController" customModule="Bicycle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T03-rT-qKL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="eyg-Wq-8WU"/>
@@ -357,7 +402,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2V-Xl-wP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="2161"/>
+            <point key="canvasLocation" x="1076" y="2217"/>
+        </scene>
+        <!--Repair Stations Maps View Controller-->
+        <scene sceneID="RdA-qP-PXr">
+            <objects>
+                <viewController id="faO-a3-UuP" customClass="RepairStationsMapsViewController" customModule="Bicycle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jV6-Ao-wfV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9br-QE-7o2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-590" y="1613"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
