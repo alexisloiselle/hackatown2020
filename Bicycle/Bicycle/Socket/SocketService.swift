@@ -102,6 +102,10 @@ class SocketService {
         socket.emit("provideHelp", lat, lng, id)
     }
     
+    static func laisserPourCompte(id: String) -> Void {
+        socket.emit("laisserPourCompte", id)
+    }
+    
 }
 
 

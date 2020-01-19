@@ -15,8 +15,8 @@ class HelpProviderViewController: UIViewController {
 
     public var lat: String = ""
     public var lng: String = ""
-    public var distance: Double = 0.0
     public var id: String = ""
+    public var distance: Double = 0.0
     
     @IBAction func yesButton(_ sender: UIButton) {
         let helpMeYesViewController  = storyboard?.instantiateViewController(withIdentifier: "HelpMeYesViewController") as! HelpMeYesViewController;
@@ -30,6 +30,8 @@ class HelpProviderViewController: UIViewController {
     }
     
     @IBAction func noButton(_ sender: UIButton) {
+        SocketService.laisserPourCompte(id: self.id)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
