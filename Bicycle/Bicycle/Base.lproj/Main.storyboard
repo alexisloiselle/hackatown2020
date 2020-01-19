@@ -91,6 +91,10 @@
                                 <rect key="frame" x="16" y="162" width="343" height="471"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RT1-M5-GsN" id="NYw-nL-wak"/>
+                                    <outlet property="delegate" destination="RT1-M5-GsN" id="CFO-lq-OHV"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgg-n1-1zY" customClass="RoundedCorners" customModule="Bicycle" customModuleProvider="target">
                                 <rect key="frame" x="16" y="664" width="343" height="60"/>
@@ -109,6 +113,9 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wKe-dK-tJe"/>
                     </view>
+                    <connections>
+                        <outlet property="nearbyRiderTable" destination="ejn-HI-E0P" id="a3y-7M-2DS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCb-dS-F1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

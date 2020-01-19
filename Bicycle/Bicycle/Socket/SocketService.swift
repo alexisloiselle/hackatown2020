@@ -16,6 +16,7 @@ let socket = manager.defaultSocket
 
 class SocketService {
     public static var initialized: Bool = false
+    public static var delegate: HelpMeViewController? = nil
     
     static func start(lat: Double, lng: Double, viewController: UIViewController) -> Void {
         socket.on(clientEvent: .connect) {data, ack in
@@ -25,6 +26,12 @@ class SocketService {
         
         socket.on("askedForHelp") {data, _  in
             print("Asked for help")
+            
+            let riders = data[0] as! [[String: Any]]
+            print(data[0])
+            
+            self.delegate?.nearbyRiders = riders
+            self.delegate?.nearbyRiderTable.reloadData()
         }
         
         socket.on("askForHelp") {data, _ in
