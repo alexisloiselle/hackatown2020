@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 
+let globalLocationManager = CLLocationManager()
+
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var repairStationTable: UITableView!
@@ -16,24 +18,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func helpPressed(_ sender: Any) {
        let helpMeViewController = storyboard?.instantiateViewController(withIdentifier: "HelpMeViewController") as! HelpMeViewController
+        SocketService.delegate = helpMeViewController
         self.present(helpMeViewController, animated: true, completion: nil)
-        SocketService.askHelp(lat: locationManager.location!.coordinate.latitude,lng: locationManager.location!.coordinate.longitude)
     }
 
     
     private var repairStations: [RepairStation] = []
-    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Get location services
         
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
+//        // Ask for Authorisation from the User.
+        globalLocationManager.requestAlwaysAuthorization()
+      
+//        // For use in foreground
+        globalLocationManager.requestWhenInUseAuthorization()
         
         self.initLocationServices()
         
@@ -75,7 +76,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func fetchNearStations() -> Void {
         if CLLocationManager.locationServicesEnabled() {
             if (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
-                RepairStationService.getCloseStations(lat: locationManager.location!.coordinate.latitude, lng: locationManager.location!.coordinate.longitude).done { (stations) in
+                RepairStationService.getCloseStations(lat: globalLocationManager.location!.coordinate.latitude, lng: globalLocationManager.location!.coordinate.longitude).done { (stations) in
                     self.repairStations = stations;
                     self.repairStationTable.reloadData();
                     self.repairStationTableTitleLabel.text = " \(self.repairStations.count) stations nearby";
@@ -87,16 +88,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func initLocationServices() -> Void {
         if CLLocationManager.locationServicesEnabled() {
             if (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
-                locationManager.delegate = self
-                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                locationManager.startUpdatingLocation()
+                globalLocationManager.delegate = self
+                globalLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                globalLocationManager.startUpdatingLocation()
             }
         }
     }
     
     func initSocket() -> Void {
         // Connect to socket
-        SocketService.start(lat: locationManager.location!.coordinate.latitude, lng: locationManager.location!.coordinate.longitude, viewController: self)
+        SocketService.start(lat: globalLocationManager.location!.coordinate.latitude, lng: globalLocationManager.location!.coordinate.longitude, viewController: self)
     }
 }
 

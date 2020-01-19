@@ -27,6 +27,7 @@ struct riderInfo: Codable {
 
 class SocketService {
     public static var initialized: Bool = false
+    public static var delegate: HelpMeViewController? = nil
     
     static func start(lat: Double, lng: Double, viewController: UIViewController) -> Void {
         socket.on(clientEvent: .connect) {data, ack in
@@ -36,6 +37,12 @@ class SocketService {
         
         socket.on("askedForHelp") {data, _  in
             print("Asked for help")
+            
+            let riders = data[0] as! [[String: Any]]
+            print(data[0])
+            
+            self.delegate?.nearbyRiders = riders
+            self.delegate?.nearbyRiderTable.reloadData()
         }
         
         socket.on("askForHelp") {data, _ in
@@ -55,6 +62,27 @@ class SocketService {
                 viewController.present(helpProviderViewController, animated: true, completion: nil)
                 }
             banner3.show()
+        }
+        
+        socket.on("helpComing") {data, _ in
+            let rider = data[0] as! [String: Any]
+            let someonesIsViewController = viewController.storyboard?.instantiateViewController(withIdentifier: "SomeonesIsViewController") as! SomeonesIsViewController
+            
+            // Allo, faut dismiss la view courante qui est modally, sinon erreur, merci
+            self.delegate!.dismiss(animated: true, completion: nil)
+            someonesIsViewController.rider = rider
+            viewController.present(someonesIsViewController, animated: true, completion: nil)
+        }
+        
+        socket.on("triste") {data, _ in
+            let id = data[0] as! String
+            
+            for (index, element) in (self.delegate?.nearbyRiders.enumerated())! {
+                if (element["id"] as! String == id) {
+                    self.delegate?.nearbyRiders[index]["bailed"] = true
+                }
+            }
+            self.delegate?.nearbyRiderTable.reloadData()
         }
         
         socket.connect()
