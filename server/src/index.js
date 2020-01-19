@@ -65,6 +65,10 @@ io.on("connection", (socket) => {
     io.to(id).emit('helpComing', lat, lng)
   })
 
+  socket.on('laisserPourCompte', (id) => {
+    io.to(id).emit('triste')
+  })
+
   socket.on('disconnect', () => {
     delete sockets[socket.id]
   })
