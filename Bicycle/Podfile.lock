@@ -1,31 +1,31 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.1)
   - Alamofire-SwiftyJSON (3.0.0):
     - Alamofire (~> 4.5)
     - SwiftyJSON (~> 4.0.0)
-  - AwaitKit (5.1.0):
+  - AwaitKit (5.2.0):
     - PromiseKit (~> 6)
   - GoogleMaps (3.7.0):
     - GoogleMaps/Maps (= 3.7.0)
   - GoogleMaps/Base (3.7.0)
   - GoogleMaps/Maps (3.7.0):
     - GoogleMaps/Base
-  - JWTDecode (2.2.0)
+  - JWTDecode (2.4.1)
   - MarqueeLabel/Swift (3.2.1)
   - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
     - SnapKit (~> 4.2.0)
-  - PromiseKit (6.8.3):
-    - PromiseKit/CorePromise (= 6.8.3)
-    - PromiseKit/Foundation (= 6.8.3)
-    - PromiseKit/UIKit (= 6.8.3)
-  - PromiseKit/Alamofire (6.8.3):
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/Alamofire (6.13.1):
     - Alamofire (~> 4.0)
     - PromiseKit/CorePromise
-  - PromiseKit/CorePromise (6.8.3)
-  - PromiseKit/Foundation (6.8.3):
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.8.3):
+  - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
   - Reachability (3.2)
   - SnapKit (4.2.0)
@@ -48,7 +48,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - Alamofire-SwiftyJSON
     - AwaitKit
@@ -64,20 +64,20 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
-  AwaitKit: a8a3d8982097ee09ac75f5c5d3952fbcc2f26f1c
+  AwaitKit: 512626cd12c82b1fbffddc8f414d0364cb456004
   GoogleMaps: 55da829c68aa931f3ae982b9e341cc2f3d89c587
-  JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
+  JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
-  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 7d228bb6e23614e4de516e63f64cf6e3c386cd76
+PODFILE CHECKSUM: d234c9cfce7b1636014f50524f5356732dee95da
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
