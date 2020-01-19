@@ -41,7 +41,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RT1-M5-GsN" kind="presentation" id="Vor-ou-kDf"/>
+                                    <action selector="helpPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1gE-lR-Okr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Never stop riding. Never stop exploring." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbW-ZO-oe0">
@@ -72,12 +72,12 @@
             </objects>
             <point key="canvasLocation" x="1079.2" y="127.09359605911331"/>
         </scene>
-        <!--View Controller-->
+        <!--Help Me View Controller-->
         <scene sceneID="TOo-Rl-Srg">
             <objects>
-                <viewController id="RT1-M5-GsN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpMeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RT1-M5-GsN" customClass="HelpMeViewController" customModule="Bicycle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ND-II-cgM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connecting you to nearby riders" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fJ-Y9-isA">
@@ -100,6 +100,9 @@
                                 <state key="normal" title="CANCEL">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeScreen:" destination="RT1-M5-GsN" eventType="touchUpInside" id="Ecu-q8-keo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
