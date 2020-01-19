@@ -14,7 +14,8 @@ class RepairStationCell: UITableViewCell {
     @IBOutlet weak var stationOperatorLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
 //    @IBAction func repairStationCellOnAction(_ sender: Any) {
-//        if(self.delegate != nil){
+    @IBOutlet weak var container: RoundedCornersView!
+    //        if(self.delegate != nil){
 //            self.delegate.callSegueFromRepairStation(myData: );
 //        }
 //    }

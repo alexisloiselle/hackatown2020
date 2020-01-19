@@ -26,17 +26,17 @@
                                     <constraint firstAttribute="height" constant="49" id="zeD-J2-oXa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSi-PJ-k12">
                                 <rect key="frame" x="16" y="52" width="83" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.1960784314" green="0.91364438540000004" blue="0.051119099180000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92206008755011004" green="0.92206008755011004" blue="0.92206008755011004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bSi-PJ-k12" firstAttribute="top" secondItem="Cf8-ez-6Y8" secondAttribute="bottom" constant="-5" id="1M1-HN-xAu"/>
                             <constraint firstItem="Cf8-ez-6Y8" firstAttribute="leading" secondItem="V5Y-Gm-uKS" secondAttribute="leading" constant="16" id="6HX-kq-afJ"/>

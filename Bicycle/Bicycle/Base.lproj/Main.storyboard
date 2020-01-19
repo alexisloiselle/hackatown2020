@@ -99,7 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.1960784314" green="0.91364438540000004" blue="0.051119099180000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fJG-dc-8f6" firstAttribute="firstBaseline" secondItem="oQe-hI-OTP" secondAttribute="baseline" constant="12.333333333333334" symbolType="layoutAnchor" id="16n-ZP-AYF"/>
                             <constraint firstItem="oQe-hI-OTP" firstAttribute="leading" secondItem="J4H-BJ-5O1" secondAttribute="leadingMargin" id="8q4-1E-CFl"/>
@@ -174,7 +174,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.1960784314" green="0.91364438540000004" blue="0.051119099180000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3Zo-x2-kew" firstAttribute="trailing" secondItem="9Gw-7Q-JVi" secondAttribute="trailing" id="9m2-My-WmX"/>
                             <constraint firstAttribute="bottom" secondItem="Nfg-U9-Chb" secondAttribute="bottom" id="APc-RW-7dj"/>
@@ -341,7 +341,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.1960784314" green="0.91364438540000004" blue="0.051119099180000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EIa-bj-8PC"/>
                     </view>
@@ -434,5 +434,5 @@
             <point key="canvasLocation" x="-590" y="1613"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
