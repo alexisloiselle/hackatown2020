@@ -20,28 +20,24 @@ class RepairStationService {
     
 extension RepairStationService {
     @discardableResult
-    public static func get() -> Promise<Data> {
+    public static func get(lat: Double, lng: Double) -> Promise<Data> {
         
-        let req = ["lat": 45.510860, "lng":-73.619050, "count":3]
+        let req = ["lat": lat, "lng": lng, "count": 3]
         
         let url: URLConvertible = "http://localhost:8080/api/stations"
 
         return Promise { (seal) in
             Alamofire.request(url, method: .post, parameters: req, encoding: JSONEncoding.default).validate()
                 .responseString { (response) in
-//                    var results = JSONDecoder().decode([RepairStation].self, from: response.data!)
                     print(response.data!);
-//                    switch response.result {
-//                    case .success:
                     seal.fulfill(response.data!);
-//            };
         }
     }
 }
     
-    static func getCloseStations() -> Promise<[RepairStation]> {
+    static func getCloseStations(lat: Double, lng: Double) -> Promise<[RepairStation]> {
         return Promise { seal in
-            RepairStationService.get().done{ (data) in
+            RepairStationService.get(lat: lat, lng: lng).done{ (data) in
                 var stations = try JSONDecoder().decode([RepairStation].self, from: data)
                 seal.fulfill(stations)
             }
