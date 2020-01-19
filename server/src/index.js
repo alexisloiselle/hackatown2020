@@ -53,7 +53,7 @@ io.on("connection", (socket) => {
       .slice(0, 3)
 
     nearestSockets.forEach((nearSocket) => {
-      io.to(nearSocket.id).emit('askForHelp', lat, lng, socket.id)
+      io.to(nearSocket.id).emit('askForHelp', {lat, lng, id: socket.id, distance: nearSocket.distance})
       console.log("Ask for help")
     })
     
