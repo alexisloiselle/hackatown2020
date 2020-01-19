@@ -26,7 +26,7 @@ class HelpMeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         SocketService.askHelp(lat: globalLocationManager.location!.coordinate.latitude,lng: globalLocationManager.location!.coordinate.longitude)
     }
-
+    
     @IBAction func closeScreen(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -44,13 +44,19 @@ extension HelpMeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NearbyRiderCell", for: indexPath) as! NearbyRiderCell
         
-        cell.label.text = nearbyRiders[indexPath.row]["id"] as! String
+        cell.label.text = nearbyRiders[indexPath.row]["name"] as! String
         cell.distance.text = "\(String(Int(((nearbyRiders[indexPath.row]["distance"]) as! Double * 1000).rounded()))) m"
+        if (nearbyRiders[indexPath.row]["bailed"] as? Bool ?? false) {
+            cell.container.backgroundColor = #colorLiteral(red: 0.9472755393, green: 0.7966470342, blue: 0.2014493321, alpha: 1)
+            cell.distance.isHidden = true
+            cell.label.textColor = .black
+            cell.message.isHidden = false
+        }
         
         return cell;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
     }
 }

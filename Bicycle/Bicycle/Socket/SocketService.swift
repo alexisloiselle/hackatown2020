@@ -40,6 +40,25 @@ class SocketService {
             banner3.show()
         }
         
+        socket.on("helpComing") {data, _ in
+            let rider = data[0] as! [String: Any]
+            let someonesIsViewController = viewController.storyboard?.instantiateViewController(withIdentifier: "SomeonesIsViewController") as! SomeonesIsViewController
+            self.delegate!.dismiss(animated: true, completion: nil)
+            someonesIsViewController.rider = rider
+            viewController.present(someonesIsViewController, animated: true, completion: nil)
+        }
+        
+        socket.on("triste") {data, _ in
+            let id = data[0] as! String
+            
+            for (index, element) in (self.delegate?.nearbyRiders.enumerated())! {
+                if (element["id"] as! String == id) {
+                    self.delegate?.nearbyRiders[index]["bailed"] = true
+                }
+            }
+            self.delegate?.nearbyRiderTable.reloadData()
+        }
+        
         socket.connect()
     }
     

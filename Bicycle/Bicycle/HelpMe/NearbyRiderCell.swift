@@ -12,11 +12,15 @@ class NearbyRiderCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.message.isHidden = true
+        self.message.textColor = .black
     }
 
+    @IBOutlet weak var container: RoundedCorners!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var distance: UILabel!
+    @IBOutlet weak var message: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         self.selectionStyle = UITableViewCell.SelectionStyle.none
