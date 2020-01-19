@@ -13,9 +13,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var repairStationTable: UITableView!
     @IBOutlet weak var repairStationTableTitleLabel: UILabel!
-    @IBOutlet weak var helpButton: RoundedCorners!
     
-    @IBAction func askHelp(_ sender: UIButton) {
+   func askHelp(_ sender: UIButton) {
         SocketService.askHelp(lat: locationManager.location!.coordinate.latitude,lng: locationManager.location!.coordinate.longitude)
     }
     
@@ -38,9 +37,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let repairStationCellNib = UINib.init(nibName: "RepairStationCell", bundle: nil)
         self.repairStationTable.register(repairStationCellNib, forCellReuseIdentifier: "RepairStationCell")
         
-        self.repairStationTable.layer.cornerRadius = 10;
         self.repairStationTable.separatorStyle = UITableViewCell.SeparatorStyle.none;
-        self.helpButton.backgroundColor = hexStringToUIColor(hex: "#32CD32");
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.layoutIfNeeded()
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -128,16 +131,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepairStationCell", for: indexPath) as! RepairStationCell
         
         cell.stationOperatorLabel.text = "\(self.repairStations[indexPath.row].stationOperator)";
-        cell.distanceLabel.text = "\(self.repairStations[indexPath.row].distance) m"
+        cell.distanceLabel.text = "\(Int(self.repairStations[indexPath.row].distance * 1000)) m"
         
         return cell;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if #available(iOS 13.0, *) {
-            if let repairStationMapController = storyboard?.instantiateViewController(withIdentifier: "RepairStationMapController") as? RepairStationsMapsViewController {
-                repairStationMapController.lat = "caliss"
-                navigationController?.pushViewController(repairStationMapController, animated: true)
+            if let repairStationDetailsViewController = storyboard?.instantiateViewController(identifier: "RepairStationDetailsViewController") as? RepairStationDetailsViewController {
+                repairStationDetailsViewController.station = self.repairStations[indexPath.row]
+                navigationController?.pushViewController(repairStationDetailsViewController, animated: true)
             }
         }
     }

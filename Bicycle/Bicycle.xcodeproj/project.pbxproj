@@ -20,6 +20,9 @@
 		3DEE1CB623D374D600E4291F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CB423D374D600E4291F /* LaunchScreen.storyboard */; };
 		59A64A2580D6C82B3AE06522 /* Pods_Bicycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C8E86E355EA89BD636235B /* Pods_Bicycle.framework */; };
 		8C92B54323D3B2DA00413DDA /* RepairStationsMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */; };
+		8C9B938523D3DEC900A27612 /* RepairStationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938423D3DEC900A27612 /* RepairStationDetailsViewController.swift */; };
+		8C9B938923D3F3F500A27612 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938823D3F3F500A27612 /* RoundedCornersView.swift */; };
+		8C9B938C23D3F69400A27612 /* HelpMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938B23D3F69400A27612 /* HelpMeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		51C8E86E355EA89BD636235B /* Pods_Bicycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bicycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE27813FE31BF883A8237CA /* Pods-Bicycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.release.xcconfig"; sourceTree = "<group>"; };
 		8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationsMapsViewController.swift; sourceTree = "<group>"; };
+		8C9B938423D3DEC900A27612 /* RepairStationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationDetailsViewController.swift; sourceTree = "<group>"; };
+		8C9B938823D3F3F500A27612 /* RoundedCornersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
+		8C9B938B23D3F69400A27612 /* HelpMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMeViewController.swift; sourceTree = "<group>"; };
 		F2A94940BAF73C86B9868BAF /* Pods-Bicycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +67,7 @@
 				3D45A09C23D378070091B225 /* RepairStationCell.xib */,
 				3D45A0A423D391580091B225 /* RepairStationService.swift */,
 				3D638F5123D3A11E00EBFCEC /* RepairStation.swift */,
+				8C9B938423D3DEC900A27612 /* RepairStationDetailsViewController.swift */,
 			);
 			path = RepairStations;
 			sourceTree = "<group>";
@@ -69,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				3D45A09F23D37A820091B225 /* RoundedCorners.swift */,
+				8C9B938823D3F3F500A27612 /* RoundedCornersView.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -102,6 +110,7 @@
 		3DEE1CAA23D374D500E4291F /* Bicycle */ = {
 			isa = PBXGroup;
 			children = (
+				8C9B938A23D3F66F00A27612 /* HelpMe */,
 				8C92B54123D3B28C00413DDA /* Maps */,
 				3D504AE823D3ADC7002BF9C8 /* Socket */,
 				3D45A0A123D37A8A0091B225 /* Buttons */,
@@ -122,6 +131,14 @@
 				8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */,
 			);
 			path = Maps;
+			sourceTree = "<group>";
+		};
+		8C9B938A23D3F66F00A27612 /* HelpMe */ = {
+			isa = PBXGroup;
+			children = (
+				8C9B938B23D3F69400A27612 /* HelpMeViewController.swift */,
+			);
+			path = HelpMe;
 			sourceTree = "<group>";
 		};
 		D09EC0F5AAD0AD3E6AA1AD12 /* Frameworks */ = {
@@ -152,8 +169,8 @@
 				3DEE1CA423D374D500E4291F /* Sources */,
 				3DEE1CA523D374D500E4291F /* Frameworks */,
 				3DEE1CA623D374D500E4291F /* Resources */,
-				6BB50B208C6AC15A85722C12 /* [CP] Embed Pods Frameworks */,
-				48F91AC60CDC969467C013DC /* [CP] Copy Pods Resources */,
+				1B7F4C5929FE1395ED2BDD97 /* [CP] Copy Pods Resources */,
+				BF56E71D5BC119293000048E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,70 +251,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6BB50B208C6AC15A85722C12 /* [CP] Embed Pods Frameworks */ = {
+		BF56E71D5BC119293000048E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/AwaitKit/AwaitKit.framework",
-				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwaitKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D6398B8A3CF420A865DF506 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Bicycle-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -310,6 +278,9 @@
 				3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */,
 				3D638F5223D3A11E00EBFCEC /* RepairStation.swift in Sources */,
 				3D504AEA23D3ADDE002BF9C8 /* SocketService.swift in Sources */,
+				8C9B938923D3F3F500A27612 /* RoundedCornersView.swift in Sources */,
+				8C9B938C23D3F69400A27612 /* HelpMeViewController.swift in Sources */,
+				8C9B938523D3DEC900A27612 /* RepairStationDetailsViewController.swift in Sources */,
 				3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */,
 				8C92B54323D3B2DA00413DDA /* RepairStationsMapsViewController.swift in Sources */,
 				3D45A0A523D391580091B225 /* RepairStationService.swift in Sources */,
