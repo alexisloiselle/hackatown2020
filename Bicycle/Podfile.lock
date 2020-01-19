@@ -11,6 +11,10 @@ PODS:
   - GoogleMaps/Maps (3.7.0):
     - GoogleMaps/Base
   - JWTDecode (2.2.0)
+  - MarqueeLabel/Swift (3.2.1)
+  - NotificationBannerSwift (2.0.1):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.2.0)
   - PromiseKit (6.8.3):
     - PromiseKit/CorePromise (= 6.8.3)
     - PromiseKit/Foundation (= 6.8.3)
@@ -24,6 +28,7 @@ PODS:
   - PromiseKit/UIKit (6.8.3):
     - PromiseKit/CorePromise
   - Reachability (3.2)
+  - SnapKit (4.2.0)
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
@@ -35,6 +40,7 @@ DEPENDENCIES:
   - AwaitKit
   - GoogleMaps
   - JWTDecode
+  - NotificationBannerSwift (= 2.0.1)
   - PromiseKit
   - PromiseKit/Alamofire
   - Reachability
@@ -42,14 +48,17 @@ DEPENDENCIES:
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - Alamofire-SwiftyJSON
     - AwaitKit
     - GoogleMaps
     - JWTDecode
+    - MarqueeLabel
+    - NotificationBannerSwift
     - PromiseKit
     - Reachability
+    - SnapKit
     - Socket.IO-Client-Swift
     - Starscream
     - SwiftyJSON
@@ -60,12 +69,15 @@ SPEC CHECKSUMS:
   AwaitKit: a8a3d8982097ee09ac75f5c5d3952fbcc2f26f1c
   GoogleMaps: 55da829c68aa931f3ae982b9e341cc2f3d89c587
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
+  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
+  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: bf67472320f3dc5ba9c72795c24b2884b5bc4655
+PODFILE CHECKSUM: d234c9cfce7b1636014f50524f5356732dee95da
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.5.3
