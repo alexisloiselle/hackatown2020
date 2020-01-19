@@ -11,6 +11,8 @@ import UIKit
 import PromiseKit
 import Alamofire
 import JWTDecode
+import CoreLocation
+
 
 class RepairStationService {
     // Singleton
@@ -43,4 +45,29 @@ extension RepairStationService {
             }
         }
     }
+    
+    static func getRoute(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) -> Promise<Data> {
+        
+        let url: URLConvertible =  "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&key=AIzaSyAjRg2kTNVBcGRtSLfpziEI7tkV-ggeXbY&mode=walking"
+        
+        return Promise { (seal) in
+            Alamofire.request(url, method: .get, encoding: JSONEncoding.default).validate()
+                .responseString { (response) in
+                    print(response.data!);
+                    seal.fulfill(response.data!);
+        }
+    }
+    }
+    
+    static func getTheRoute(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) -> Promise<[String:Any]> {
+           return Promise { seal in
+               RepairStationService.getRoute(source: source, destination: destination).done{ (data) in
+                
+                let routes = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+//                var routes = data as! Dictionary<String, Any>
+                print(routes!)
+                   seal.fulfill(routes!)
+               }
+           }
+       }
 }
