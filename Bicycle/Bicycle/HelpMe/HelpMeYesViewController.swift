@@ -17,7 +17,7 @@ class HelpMeYesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("****** \(self.lat) + \(self.lng)")
+        
         let dist = (self.distance * 1000).rounded()
         self.distanceLabel.text = String(Int(dist)) + " m"
     }
