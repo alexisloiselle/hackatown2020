@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		3DEE1CB323D374D600E4291F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CB223D374D600E4291F /* Assets.xcassets */; };
 		3DEE1CB623D374D600E4291F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CB423D374D600E4291F /* LaunchScreen.storyboard */; };
 		59A64A2580D6C82B3AE06522 /* Pods_Bicycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C8E86E355EA89BD636235B /* Pods_Bicycle.framework */; };
+		8C92B54323D3B2DA00413DDA /* RepairStationsMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		3DEE1CB723D374D600E4291F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51C8E86E355EA89BD636235B /* Pods_Bicycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bicycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE27813FE31BF883A8237CA /* Pods-Bicycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.release.xcconfig"; sourceTree = "<group>"; };
+		8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationsMapsViewController.swift; sourceTree = "<group>"; };
 		F2A94940BAF73C86B9868BAF /* Pods-Bicycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		3DEE1CAA23D374D500E4291F /* Bicycle */ = {
 			isa = PBXGroup;
 			children = (
+				8C92B54123D3B28C00413DDA /* Maps */,
 				3D504AE823D3ADC7002BF9C8 /* Socket */,
 				3D45A0A123D37A8A0091B225 /* Buttons */,
 				3D45A09A23D377AD0091B225 /* RepairStations */,
@@ -111,6 +114,14 @@
 				3DEE1CB723D374D600E4291F /* Info.plist */,
 			);
 			path = Bicycle;
+			sourceTree = "<group>";
+		};
+		8C92B54123D3B28C00413DDA /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */,
+			);
+			path = Maps;
 			sourceTree = "<group>";
 		};
 		D09EC0F5AAD0AD3E6AA1AD12 /* Frameworks */ = {
@@ -141,6 +152,7 @@
 				3DEE1CA423D374D500E4291F /* Sources */,
 				3DEE1CA523D374D500E4291F /* Frameworks */,
 				3DEE1CA623D374D500E4291F /* Resources */,
+				1B7F4C5929FE1395ED2BDD97 /* [CP] Copy Pods Resources */,
 				2E685E3849125D2A58964E55 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -200,7 +212,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E685E3849125D2A58964E55 /* [CP] Embed Pods Frameworks */ = {
+		1B7F4C5929FE1395ED2BDD97 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D6398B8A3CF420A865DF506 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bicycle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F59C04B01BECBDBD3AC87B4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -235,7 +286,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D6398B8A3CF420A865DF506 /* [CP] Check Pods Manifest.lock */ = {
@@ -271,6 +322,7 @@
 				3D638F5223D3A11E00EBFCEC /* RepairStation.swift in Sources */,
 				3D504AEA23D3ADDE002BF9C8 /* SocketService.swift in Sources */,
 				3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */,
+				8C92B54323D3B2DA00413DDA /* RepairStationsMapsViewController.swift in Sources */,
 				3D45A0A523D391580091B225 /* RepairStationService.swift in Sources */,
 				3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */,
 				3D45A09D23D378070091B225 /* RepairStationCell.swift in Sources */,

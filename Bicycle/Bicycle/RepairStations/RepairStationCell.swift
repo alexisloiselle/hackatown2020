@@ -9,15 +9,20 @@
 import UIKit
 
 class RepairStationCell: UITableViewCell {
+//    var delegate: RepairStationCellDelegate!
 
     @IBOutlet weak var stationOperatorLabel: UILabel!
-    
     @IBOutlet weak var distanceLabel: UILabel!
+//    @IBAction func repairStationCellOnAction(_ sender: Any) {
+//        if(self.delegate != nil){
+//            self.delegate.callSegueFromRepairStation(myData: );
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10;
-        self.backgroundColor = hexStringToUIColor(hex: "#6fdc6f");
+//        self.backgroundColor = hexStringToUIColor(hex: "#6fdc6f");
         // Initialization code
     }
     
@@ -47,5 +52,9 @@ class RepairStationCell: UITableViewCell {
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         super.setSelected(selected, animated: animated)
     }
-    
 }
+
+//protocol RepairStationCellDelegate {
+//    func callSegueFromRepairStation(myData dataObject: AnyObject);
+//}
+

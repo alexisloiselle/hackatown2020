@@ -5,6 +5,11 @@ PODS:
     - SwiftyJSON (~> 4.0.0)
   - AwaitKit (5.1.0):
     - PromiseKit (~> 6)
+  - GoogleMaps (3.7.0):
+    - GoogleMaps/Maps (= 3.7.0)
+  - GoogleMaps/Base (3.7.0)
+  - GoogleMaps/Maps (3.7.0):
+    - GoogleMaps/Base
   - JWTDecode (2.2.0)
   - PromiseKit (6.8.3):
     - PromiseKit/CorePromise (= 6.8.3)
@@ -28,6 +33,7 @@ DEPENDENCIES:
   - Alamofire
   - Alamofire-SwiftyJSON
   - AwaitKit
+  - GoogleMaps
   - JWTDecode
   - PromiseKit
   - PromiseKit/Alamofire
@@ -36,10 +42,11 @@ DEPENDENCIES:
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - Alamofire-SwiftyJSON
     - AwaitKit
+    - GoogleMaps
     - JWTDecode
     - PromiseKit
     - Reachability
@@ -51,6 +58,7 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
   AwaitKit: a8a3d8982097ee09ac75f5c5d3952fbcc2f26f1c
+  GoogleMaps: 55da829c68aa931f3ae982b9e341cc2f3d89c587
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -60,4 +68,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: bf67472320f3dc5ba9c72795c24b2884b5bc4655
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
