@@ -18,6 +18,8 @@
 		3DEE1CB123D374D500E4291F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CAF23D374D500E4291F /* Main.storyboard */; };
 		3DEE1CB323D374D600E4291F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CB223D374D600E4291F /* Assets.xcassets */; };
 		3DEE1CB623D374D600E4291F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE1CB423D374D600E4291F /* LaunchScreen.storyboard */; };
+		8C354E9423D40E5300C5DCAF /* HelpProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C354E9323D40E5300C5DCAF /* HelpProviderViewController.swift */; };
+		8C354E9623D4328700C5DCAF /* HelpMeYesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C354E9523D4328700C5DCAF /* HelpMeYesViewController.swift */; };
 		8C92B54323D3B2DA00413DDA /* RepairStationsMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */; };
 		8C9B938523D3DEC900A27612 /* RepairStationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938423D3DEC900A27612 /* RepairStationDetailsViewController.swift */; };
 		8C9B938923D3F3F500A27612 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B938823D3F3F500A27612 /* RoundedCornersView.swift */; };
@@ -42,6 +44,8 @@
 		729D02FA56C319C24F4290DC /* Pods-Bicycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.release.xcconfig"; sourceTree = "<group>"; };
 		7C28D63900EC24F732BCEF1F /* Pods-Bicycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bicycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle.debug.xcconfig"; sourceTree = "<group>"; };
 		84B19C4076FCBB5EC1693688 /* Pods_Bicycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bicycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C354E9323D40E5300C5DCAF /* HelpProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProviderViewController.swift; sourceTree = "<group>"; };
+		8C354E9523D4328700C5DCAF /* HelpMeYesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMeYesViewController.swift; sourceTree = "<group>"; };
 		8C92B54223D3B2DA00413DDA /* RepairStationsMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationsMapsViewController.swift; sourceTree = "<group>"; };
 		8C9B938423D3DEC900A27612 /* RepairStationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairStationDetailsViewController.swift; sourceTree = "<group>"; };
 		8C9B938823D3F3F500A27612 /* RoundedCornersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				8C9B938B23D3F69400A27612 /* HelpMeViewController.swift */,
+				8C354E9323D40E5300C5DCAF /* HelpProviderViewController.swift */,
+				8C354E9523D4328700C5DCAF /* HelpMeYesViewController.swift */,
 			);
 			path = HelpMe;
 			sourceTree = "<group>";
@@ -235,20 +241,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E9F0826BCA37C34425A541E /* [CP] Embed Pods Frameworks */ = {
@@ -257,42 +258,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/AwaitKit/AwaitKit.framework",
-				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwaitKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bicycle/Pods-Bicycle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0446CF7A3ED593B1C086D36 /* [CP] Check Pods Manifest.lock */ = {
@@ -327,11 +301,13 @@
 				3D45A0A023D37A820091B225 /* RoundedCorners.swift in Sources */,
 				3D638F5223D3A11E00EBFCEC /* RepairStation.swift in Sources */,
 				3D504AEA23D3ADDE002BF9C8 /* SocketService.swift in Sources */,
+				8C354E9623D4328700C5DCAF /* HelpMeYesViewController.swift in Sources */,
 				8C9B938923D3F3F500A27612 /* RoundedCornersView.swift in Sources */,
 				8C9B938C23D3F69400A27612 /* HelpMeViewController.swift in Sources */,
 				8C9B938523D3DEC900A27612 /* RepairStationDetailsViewController.swift in Sources */,
 				3DEE1CAE23D374D500E4291F /* ViewController.swift in Sources */,
 				8C92B54323D3B2DA00413DDA /* RepairStationsMapsViewController.swift in Sources */,
+				8C354E9423D40E5300C5DCAF /* HelpProviderViewController.swift in Sources */,
 				3D45A0A523D391580091B225 /* RepairStationService.swift in Sources */,
 				3DEE1CAC23D374D500E4291F /* AppDelegate.swift in Sources */,
 				3D45A09D23D378070091B225 /* RepairStationCell.swift in Sources */,

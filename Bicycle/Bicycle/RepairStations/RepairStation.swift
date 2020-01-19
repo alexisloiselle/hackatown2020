@@ -9,9 +9,10 @@
 import Foundation
 
 struct RepairStation: Codable  {
-    var address: String
+    var id: String?
+    var address: String?
     var distance: Double
-    var stationOperator: String
+    var stationOperator: String?
     var lat: String
     var lng: String
 }

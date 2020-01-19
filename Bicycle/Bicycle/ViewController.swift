@@ -17,11 +17,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func helpPressed(_ sender: Any) {
        let helpMeViewController = storyboard?.instantiateViewController(withIdentifier: "HelpMeViewController") as! HelpMeViewController
         self.present(helpMeViewController, animated: true, completion: nil)
-    }
-    
-   func askHelp(_ sender: UIButton) {
         SocketService.askHelp(lat: locationManager.location!.coordinate.latitude,lng: locationManager.location!.coordinate.longitude)
     }
+
     
     private var repairStations: [RepairStation] = []
     let locationManager = CLLocationManager()
@@ -114,7 +112,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepairStationCell", for: indexPath) as! RepairStationCell
         
-        cell.stationOperatorLabel.text = "\(self.repairStations[indexPath.row].stationOperator)";
+        cell.stationOperatorLabel.text = self.repairStations[indexPath.row].stationOperator;
         cell.distanceLabel.text = "\(Int(self.repairStations[indexPath.row].distance * 1000)) m"
         
         return cell;
