@@ -25,8 +25,7 @@ class HelpProviderViewController: UIViewController {
         helpMeYesViewController.lng = String(self.lng)
         helpMeYesViewController.distance = self.distance
         
-        SocketService.provideHelp(lat: Double(self.lat) as! Double, lng: Double(self.lng) as! Double, id: self.id)
-        present(helpMeYesViewController, animated: true, completion: nil)
+        SocketService.provideHelp(lat: Double(self.lat)!, lng: Double(self.lng)!, id: self.id,viewController: self, helpMeYes: helpMeYesViewController)
     }
     
     @IBAction func noButton(_ sender: UIButton) {
@@ -45,7 +44,12 @@ class HelpProviderViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         (self.children[0] as! RepairStationsMapsViewController).lat = String(self.lat)
         (self.children[0] as! RepairStationsMapsViewController).lng = String(self.lng)
+        let position = CLLocationCoordinate2D(latitude: Double(self.lat)!, longitude: Double(self.lng)!)
         (self.children[0] as! RepairStationsMapsViewController).loadView()
+        (self.children[0] as! RepairStationsMapsViewController).fetchRoute(from: globalLocationManager.location!.coordinate, to: position)
+        print("sahdkashdkjashd")
+        print(globalLocationManager.location!.coordinate)
+        print(position)
     }
 
 }

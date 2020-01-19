@@ -11,7 +11,7 @@ import SocketIO
 import PromiseKit
 import NotificationBannerSwift
 
-let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(false), .compress])
+let manager = SocketManager(socketURL: URL(string: "http://10.200.29.158:8080")!, config: [.log(false), .compress])
 let socket = manager.defaultSocket
 
 struct riderInfo: Codable {
@@ -28,8 +28,10 @@ struct riderInfo: Codable {
 class SocketService {
     public static var initialized: Bool = false
     public static var delegate: HelpMeViewController? = nil
+    public static var rootDelegate: ViewController? = nil
     
     static func start(lat: Double, lng: Double, viewController: UIViewController) -> Void {
+        self.rootDelegate = viewController as! ViewController
         socket.on(clientEvent: .connect) {data, ack in
             self.updatePosition(lat: lat, lng: lng)
             print("socket connected")
@@ -98,7 +100,9 @@ class SocketService {
         socket.emit("updatePosition", lat, lng)
     }
     
-    static func provideHelp(lat: Double, lng: Double, id: String) -> Void{
+    static func provideHelp(lat: Double, lng: Double, id: String, viewController: UIViewController, helpMeYes: UIViewController) -> Void{
+        viewController.dismiss(animated: true, completion: nil)
+        self.rootDelegate!.present(helpMeYes, animated: true, completion: nil)
         socket.emit("provideHelp", lat, lng, id)
     }
     

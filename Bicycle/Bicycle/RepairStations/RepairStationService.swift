@@ -19,23 +19,23 @@ class RepairStationService {
     static let shared = RepairStationService()
     
 }
-    
+
 extension RepairStationService {
     @discardableResult
     public static func get(lat: Double, lng: Double) -> Promise<Data> {
         
         let req = ["lat": lat, "lng": lng, "count": 3]
         
-        let url: URLConvertible = "http://localhost:8080/api/stations"
-
+        let url: URLConvertible = "http://10.200.29.158:8080/api/stations"
+        
         return Promise { (seal) in
             Alamofire.request(url, method: .post, parameters: req, encoding: JSONEncoding.default).validate()
                 .responseString { (response) in
                     print(response.data!);
                     seal.fulfill(response.data!);
+            }
         }
     }
-}
     
     static func getCloseStations(lat: Double, lng: Double) -> Promise<[RepairStation]> {
         return Promise { seal in
@@ -55,19 +55,19 @@ extension RepairStationService {
                 .responseString { (response) in
                     print(response.data!);
                     seal.fulfill(response.data!);
+            }
         }
-    }
     }
     
     static func getTheRoute(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) -> Promise<[String:Any]> {
-           return Promise { seal in
-               RepairStationService.getRoute(source: source, destination: destination).done{ (data) in
+        return Promise { seal in
+            RepairStationService.getRoute(source: source, destination: destination).done{ (data) in
                 
                 let routes = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
-//                var routes = data as! Dictionary<String, Any>
+                //                var routes = data as! Dictionary<String, Any>
                 print(routes!)
-                   seal.fulfill(routes!)
-               }
-           }
-       }
+                seal.fulfill(routes!)
+            }
+        }
+    }
 }

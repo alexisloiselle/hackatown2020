@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SomeonesIsViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
@@ -25,6 +26,8 @@ class SomeonesIsViewController: UIViewController {
         print(self.rider)
         (self.children[0] as! RepairStationsMapsViewController).lat = String(self.rider["lat"] as! Double)
         (self.children[0] as! RepairStationsMapsViewController).lng = String(self.rider["lng"] as! Double)
+        let position = CLLocationCoordinate2D(latitude:self.rider["lat"] as! Double, longitude:self.rider["lng"] as! Double)
         (self.children[0] as! RepairStationsMapsViewController).loadView()
+        (self.children[0] as! RepairStationsMapsViewController).fetchRoute(from: globalLocationManager.location!.coordinate, to: position)
     }
 }
